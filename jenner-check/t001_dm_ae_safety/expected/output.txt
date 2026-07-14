@@ -1,0 +1,322 @@
+
+  Obs  STUDYID     USUBJID  SEX      RACE      ARM       COUNTRY  AGE
+-----  -------  ----------  ---  --------  -------  ------------  ---
+    1  ONC101   ONC101-001  F    ASIAN     Drug A   India          54
+    2  ONC101   ONC101-002  M    WHITE     Drug B   USA            62
+    3  ONC101   ONC101-003  F    ASIAN     Drug A   India          47
+    4  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58
+    5  ONC101   ONC101-005  F    HISPANIC  Placebo  Brazil         39
+    6  ONC101   ONC101-006  F    WHITE     Drug A   Germany        66
+    7  ONC101   ONC101-007  M    ASIAN     Placebo  India          51
+    8  ONC101   ONC101-008  F    WHITE     Drug B   Greece         45
+    9  ONC101   ONC101-009  M    BLACK     Drug A   South Africa   72
+   10  ONC101   ONC101-010  F    ASIAN     Drug B   India          57
+
+  Obs  STUDYID     USUBJID              AEDECOD     AESTDTC     AEENDTC  AESER  SEVERITY
+-----  -------  ----------  -------------------  ----------  ----------  -----  --------
+    1  ONC101   ONC101-001  HEADACHE             2023-03-04  2023-03-06  No     Mild
+    2  ONC101   ONC101-001  NAUSEA               2023-04-01  2023-04-02  No     Moderate
+    3  ONC101   ONC101-002  ANEMIA               2023-03-15  2023-03-20  Yes    Severe
+    4  ONC101   ONC101-003  VOMITING             2023-02-10  2023-02-12  No     Mild
+    5  ONC101   ONC101-003  FATIGUE              2023-02-25  2023-03-01  No     Moderate
+    6  ONC101   ONC101-004  PYREXIA              2023-03-10  2023-03-12  No     Mild
+    7  ONC101   ONC101-004  NEUTROPENIA          2023-03-15  2023-03-18  Yes    Severe
+    8  ONC101   ONC101-005  HEADACHE             2023-01-05  2023-01-06  No     Mild
+    9  ONC101   ONC101-007  INJECTION SITE PAIN  2023-03-20  2023-03-21  No     Mild
+   10  ONC101   ONC101-009  LOSS OF APPETITE     2023-02-18  2023-02-25  No     Moderate
+
+
+PROC CONTENTS
+-------------------------------------------------------------------------------
+
+Data Set Name: demog
+Observations:  10
+Variables:     7
+
+Variables (in alphabetical order):
+
+  #  Variable  Type    Len  Format  Label
+---  --------  ----  -----  ------  -----
+  1  AGE        Num      8          
+  2  ARM       Char      8          
+  3  COUNTRY   Char     14          
+  4  RACE      Char     10          
+  5  SEX       Char      1          
+  6  STUDYID   Char      8          
+  7  USUBJID   Char     12          
+
+-------------------------------------------------------------------------------
+
+
+PROC CONTENTS
+-------------------------------------------------------------------------------
+
+Data Set Name: adevent
+Observations:  10
+Variables:     7
+
+Variables (in alphabetical order):
+
+  #  Variable  Type    Len  Format  Label
+---  --------  ----  -----  ------  -----
+  1  AEDECOD   Char     20          
+  2  AEENDTC   Char     10          
+  3  AESER     Char      3          
+  4  AESTDTC   Char     10          
+  5  SEVERITY  Char      8          
+  6  STUDYID   Char      8          
+  7  USUBJID   Char     12          
+
+-------------------------------------------------------------------------------
+
+                                                  Data Cleaning Report
+
+                                                  Data Cleaning Report
+
+                                                  Data Cleaning Report
+
+                                                  Data Cleaning Report
+
+                                              Subjects in AE but not in DM
+
+                                              Subjects in AE but not in DM
+
+
+No observations in dataset.
+
+                                              Subjects in DM with no AEs 
+
+                                              Subjects in DM with no AEs 
+
+
+  Obs     usubjid
+-----  ----------
+    1  ONC101-006
+    2  ONC101-008
+    3  ONC101-010
+
+                                           Count of subjects in each category
+
+SUBJECT_COUNT_IN_DEMOG  SUBJECT_COUNT_IN_AE
+----------------------  -------------------
+                    10                    7
+                                 Total number of subjects in adverse event [AE] dataset
+
+total_num_subj
+--------------
+             7
+                                             Number of subjects with >=1 AE
+
+   USUBJID  num_of_AE_per_subj
+----------  ------------------
+ONC101-001                   2
+ONC101-002                   1
+ONC101-003                   2
+ONC101-004                   2
+ONC101-005                   1
+ONC101-007                   1
+ONC101-009                   1
+                                                 % of subjects with AEs
+
+                                                   The FREQ Procedure
+
+USUBJID       Frequency    Percent
+-----------------------------------
+ONC101-001            2     20.00
+ONC101-002            1     10.00
+ONC101-003            2     20.00
+ONC101-004            2     20.00
+ONC101-005            1     10.00
+ONC101-007            1     10.00
+ONC101-009            1     10.00
+                              Event-Level Summary if AESER = 'Yes' and SEVERITY = 'Severe 
+
+Total_AEs  Total_serious_AEs  Total_severe_AEs
+---------  -----------------  ----------------
+       10                  2                 2
+                                         AE counts by Preferred Term (AEDECOD)
+
+                                                   The FREQ Procedure
+
+AEDECOD                Frequency
+---------------------------------
+ANEMIA                         1
+FATIGUE                        1
+HEADACHE                       2
+INJECTION SITE PAIN            1
+LOSS OF APPETITE               1
+NAUSEA                         1
+NEUTROPENIA                    1
+PYREXIA                        1
+VOMITING                       1
+                                                 AE Counts by Severity
+
+                                                   The FREQ Procedure
+
+SEVERITY    Frequency
+----------------------
+Mild                5
+Moderate            3
+Severe              2
+                                                 AE Counts by Severity
+
+                                                 AE Counts by Severity
+
+                                                 AE Counts by Severity
+
+                                             AE Incidence by Treatment Arm
+
+  Obs      arm  total_subjects  subjects_with_ae  pct_subjects_with_ae
+    1  Drug A                4                 3                 75.00
+    2  Drug B                4                 2                 50.00
+    3  Placebo               2                 2                100.00
+
+                                          Serious AE Listing with AESER = Yes
+
+
+  Obs     USUBJID      AEDECOD  SEVERITY     AESTDTC     AEENDTC
+-----  ----------  -----------  --------  ----------  ----------
+    1  ONC101-002  ANEMIA       Severe    2023-03-15  2023-03-20
+    2  ONC101-004  NEUTROPENIA  Severe    2023-03-15  2023-03-18
+
+                                          Serious AE Listing with AESER = Yes
+
+
+  Obs  STUDYID     USUBJID  SEX      RACE      ARM       COUNTRY  AGE              AEDECOD     AESTDTC     AEENDTC  AESER  SEVERITY
+-----  -------  ----------  ---  --------  -------  ------------  ---  -------------------  ----------  ----------  -----  --------
+    1  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  HEADACHE             2023-03-04  2023-03-06  No     Mild
+    2  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  NAUSEA               2023-04-01  2023-04-02  No     Moderate
+    3  ONC101   ONC101-002  M    WHITE     Drug B   USA            62  ANEMIA               2023-03-15  2023-03-20  Yes    Severe
+    4  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  VOMITING             2023-02-10  2023-02-12  No     Mild
+    5  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  FATIGUE              2023-02-25  2023-03-01  No     Moderate
+    6  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  PYREXIA              2023-03-10  2023-03-12  No     Mild
+    7  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  NEUTROPENIA          2023-03-15  2023-03-18  Yes    Severe
+    8  ONC101   ONC101-005  F    HISPANIC  Placebo  Brazil         39  HEADACHE             2023-01-05  2023-01-06  No     Mild
+    9  ONC101   ONC101-006  F    WHITE     Drug A   Germany        66
+   10  ONC101   ONC101-007  M    ASIAN     Placebo  India          51  INJECTION SITE PAIN  2023-03-20  2023-03-21  No     Mild
+   11  ONC101   ONC101-008  F    WHITE     Drug B   Greece         45
+   12  ONC101   ONC101-009  M    BLACK     Drug A   South Africa   72  LOSS OF APPETITE     2023-02-18  2023-02-25  No     Moderate
+   13  ONC101   ONC101-010  F    ASIAN     Drug B   India          57
+
+                                              Country-wise AE Distribution
+
+                                                   The FREQ Procedure
+
+Table of COUNTRY by AEDECOD
+
+COUNTRY      |             ANEMIA |            FATIGUE |           HEADACHE |INJECTION SITE PAIN |   LOSS OF APPETITE |             NAUSEA |        NEUTROPENIA |            PYREXIA |           VOMITING |               Total
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+Brazil       |                  0 |                  0 |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                   1
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+India        |                  0 |                  1 |                  1 |                  1 |                  0 |                  1 |                  0 |                  0 |                  1 |                   5
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+Kenya        |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  1 |                  1 |                  0 |                   2
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+South Africa |                  0 |                  0 |                  0 |                  0 |                  1 |                  0 |                  0 |                  0 |                  0 |                   1
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+USA          |                  1 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                  0 |                   1
+-------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------
+Total        |                  1 |                  1 |                  2 |                  1 |                  1 |                  1 |                  1 |                  1 |                  1 |                  10
+
+                                              Country-wise AE Distribution
+
+                                              Final Safety Report Dataset
+
+  Obs     usubjid  age  sex      arm  total_aes  serious_aes  severe_aes
+    1  ONC101-001   54  F    Drug A           2            0           0
+    2  ONC101-002   62  M    Drug B           1            1           1
+    3  ONC101-003   47  F    Drug A           2            0           0
+    4  ONC101-004   58  M    Drug B           2            1           1
+    5  ONC101-005   39  F    Placebo          1            0           0
+    6  ONC101-006   66  F    Drug A           0            .           .
+    7  ONC101-007   51  M    Placebo          1            0           0
+    8  ONC101-008   45  F    Drug B           0            .           .
+    9  ONC101-009   72  M    Drug A           1            0           0
+   10  ONC101-010   57  F    Drug B           0            .           .
+
+                                            Top Most Frequent Adverse Events
+
+                                            Top Most Frequent Adverse Events
+
+
+  Obs  Rank              AEDECOD  Count  Event_Count
+-----  ----  -------------------  -----  -----------
+    1     1  HEADACHE                 .            2
+    2     2  NAUSEA                   .            1
+    3     2  ANEMIA                   .            1
+    4     2  VOMITING                 .            1
+    5     2  FATIGUE                  .            1
+    6     2  PYREXIA                  .            1
+    7     2  NEUTROPENIA              .            1
+    8     2  INJECTION SITE PAIN      .            1
+    9     2  LOSS OF APPETITE         .            1
+
+                                            Top Most Frequent Adverse Events
+
+                                            Top Most Frequent Adverse Events
+
+
+  Obs  studyid     usubjid  sex      race      arm       country  age              aedecod     aestdtc     aeendtc  aeser  severity
+-----  -------  ----------  ---  --------  -------  ------------  ---  -------------------  ----------  ----------  -----  --------
+    1  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  HEADACHE             2023-03-04  2023-03-06  No     Mild
+    2  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  NAUSEA               2023-04-01  2023-04-02  No     Moderate
+    3  ONC101   ONC101-002  M    WHITE     Drug B   USA            62  ANEMIA               2023-03-15  2023-03-20  Yes    Severe
+    4  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  VOMITING             2023-02-10  2023-02-12  No     Mild
+    5  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  FATIGUE              2023-02-25  2023-03-01  No     Moderate
+    6  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  PYREXIA              2023-03-10  2023-03-12  No     Mild
+    7  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  NEUTROPENIA          2023-03-15  2023-03-18  Yes    Severe
+    8  ONC101   ONC101-005  F    HISPANIC  Placebo  Brazil         39  HEADACHE             2023-01-05  2023-01-06  No     Mild
+    9  ONC101   ONC101-007  M    ASIAN     Placebo  India          51  INJECTION SITE PAIN  2023-03-20  2023-03-21  No     Mild
+   10  ONC101   ONC101-009  M    BLACK     Drug A   South Africa   72  LOSS OF APPETITE     2023-02-18  2023-02-25  No     Moderate
+   11  ONC101   ONC101-006  F    WHITE     Drug A   Germany        66
+   12  ONC101   ONC101-008  F    WHITE     Drug B   Greece         45
+   13  ONC101   ONC101-010  F    ASIAN     Drug B   India          57
+
+                                                    ARM standardized
+
+  Obs  studyid     usubjid  sex      race      arm       country  age              aedecod     aestdtc     aeendtc  aeser  severity  ARM_STD
+    1  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  HEADACHE             2023-03-04  2023-03-06  No     Mild      DRUG_A
+    2  ONC101   ONC101-001  F    ASIAN     Drug A   India          54  NAUSEA               2023-04-01  2023-04-02  No     Moderate  DRUG_A
+    3  ONC101   ONC101-002  M    WHITE     Drug B   USA            62  ANEMIA               2023-03-15  2023-03-20  Yes    Severe    DRUG_B
+    4  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  VOMITING             2023-02-10  2023-02-12  No     Mild      DRUG_A
+    5  ONC101   ONC101-003  F    ASIAN     Drug A   India          47  FATIGUE              2023-02-25  2023-03-01  No     Moderate  DRUG_A
+    6  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  PYREXIA              2023-03-10  2023-03-12  No     Mild      DRUG_B
+    7  ONC101   ONC101-004  M    BLACK     Drug B   Kenya          58  NEUTROPENIA          2023-03-15  2023-03-18  Yes    Severe    DRUG_B
+    8  ONC101   ONC101-005  F    HISPANIC  Placebo  Brazil         39  HEADACHE             2023-01-05  2023-01-06  No     Mild      PLACEBO
+    9  ONC101   ONC101-007  M    ASIAN     Placebo  India          51  INJECTION SITE PAIN  2023-03-20  2023-03-21  No     Mild      PLACEBO
+   10  ONC101   ONC101-009  M    BLACK     Drug A   South Africa   72  LOSS OF APPETITE     2023-02-18  2023-02-25  No     Moderate  DRUG_A
+   11  ONC101   ONC101-006  F    WHITE     Drug A   Germany        66                                                                DRUG_A
+   12  ONC101   ONC101-008  F    WHITE     Drug B   Greece         45                                                                DRUG_B
+   13  ONC101   ONC101-010  F    ASIAN     Drug B   India          57                                                                DRUG_B
+
+                                                    ARM standardized
+
+                                                 AE Listing for DRUG_A
+
+  Obs           aedecod
+    1  HEADACHE
+    2  NAUSEA
+    3  VOMITING
+    4  FATIGUE
+    5  LOSS OF APPETITE
+    6
+
+                                                 AE Listing for DRUG_A
+
+                                                 AE Listing for DRUG_B
+
+  Obs      aedecod
+    1  ANEMIA
+    2  PYREXIA
+    3  NEUTROPENIA
+    4
+    5
+
+                                                 AE Listing for DRUG_B
+
+                                                 AE Listing for PLACEBO
+
+  Obs              aedecod
+    1  HEADACHE
+    2  INJECTION SITE PAIN
+

@@ -1,0 +1,8 @@
+{
+  "bundle": "t001_dm_ae_safety",
+  "source_file": "Project_DM_AE.sas",
+  "source_blob_sha": "730b24ab5b500da4e4f67f8dbcbdc023ce43de66",
+  "source_commit": "42eed0fab67f7db8242902cc9e468243b52b6011",
+  "captured_run_id": "r_24f3281e8a07469ba55a793b9dafbe75",
+  "notes": "Full DM/AE clinical safety pipeline (data cleaning + PROC SQL reconciliation + PROC FREQ summaries + AE incidence by arm + serious-AE listing + AE_SUMMARY + PROC RANK + %select_arm macro). The two PROC IMPORT steps that read the 'DM' and 'AE' sheets of PROJECT - DATASET.xls were replaced with equivalent DATA steps (DSD comma-delimited datalines) carrying the same 10 DM rows and 10 AE rows and identical column names/values; ODS PDF path made relative (Safety_Report.pdf). All downstream logic is unchanged repo code. Reproducible across two POSTs."
+}
