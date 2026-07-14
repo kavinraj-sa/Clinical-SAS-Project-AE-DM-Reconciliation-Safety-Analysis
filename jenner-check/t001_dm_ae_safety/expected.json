@@ -1,0 +1,15 @@
+{
+  "_captured_at": "2026-07-14T10:45:00Z",
+  "_captured_run_id": "see meta.json",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote serious_AE (2 rows, 7 columns).",
+    "NOTE: Table AE_Incidence_by_ARM created.",
+    "NOTE: PROC PRINT completed: 3 observations printed, 4 variables",
+    "NOTE: Table AE_SUMMARY created.",
+    "NOTE: Table PLACEBO_arm created."
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}
